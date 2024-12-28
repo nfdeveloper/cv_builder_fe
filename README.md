@@ -10,8 +10,6 @@ Node: 20.12.2
 
 Package Manager: npm 10.5.0
 
-OS: win32 x64
-
 Angular: 17.3.12
 
 ## Development server
