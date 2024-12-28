@@ -5,9 +5,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Versões Desenvolvimento
 
 Angular CLI: 17.3.11
+
 Node: 20.12.2
+
 Package Manager: npm 10.5.0
+
 OS: win32 x64
+
 Angular: 17.3.12
 
 ## Development server
