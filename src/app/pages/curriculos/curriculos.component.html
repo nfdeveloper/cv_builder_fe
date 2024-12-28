@@ -1,0 +1,38 @@
+<div class="main">
+    <div class="card">
+        <div class="titulo">
+            <h3>Currículos</h3>
+            <hr>
+        </div>
+        <div class="data">
+            <p-table
+                class="tabela"
+                [value]="curriculos"
+                [paginator]="true"
+                [rows]="5"
+                [rowsPerPageOptions]="[5, 10, 20]"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width:25%">Nome</th>
+                        <th style="width:25%;text-align: center;">Data</th>
+                        <th style="width:25%;text-align: center;"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-cur>
+                    <tr>
+                        <td >{{ cur.nome }}</td>
+                        <td style="text-align: center;">{{ cur.dataCurriculo | date: 'dd/MM/yyyy' }}</td>
+                        <td style="text-align: center;">
+                            <div class="btns-acoes">
+                                <p-button [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;', 'margin-right':'0.5rem', 'width': '2rem', 'height':'2rem'}"  icon="pi pi-pencil" />
+                                <p-button [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;', 'width': '2rem', 'height':'2rem'}"  icon="pi pi-ban" />
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+
+            </p-table>
+        </div>
+    </div>
+</div>

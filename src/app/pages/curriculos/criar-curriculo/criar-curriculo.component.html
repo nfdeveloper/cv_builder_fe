@@ -1,0 +1,155 @@
+<div [style]="{'width':'100%'}">
+    <p-toast></p-toast>
+</div>
+<div class="main">
+    <div class="card">
+        <div class="titulo">
+            <h3>Novo Currículo</h3>
+            <hr>
+        </div>
+        <div class="data">
+           <div class="card-form">
+            <form #f="ngForm" (ngSubmit)="salvar()" [formGroup]="curriculoForms" action="">
+                <div class="container">
+                    <div class="linha">
+                        <label for="nome">Nome <i class="pi pi-question-circle" pTooltip="Coloque um nome que identifique o seu currículo para facilitar consultas futuras. Ex: Desenvolvedor Java/Angular. Essa informação não estará no PDF do currículo."></i></label>
+                        <input id="nome" type="text" formControlName="nome" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!curriculoForms.controls?.['nome']?.valid && curriculoForms.controls?.['nome']?.touched">
+                            Nome é obrigatória.
+                        </small>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="titulo">Título</label>
+                        <input id="titulo" dtype="text" formControlName="titulo" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!curriculoForms.controls?.['titulo']?.valid && curriculoForms.controls?.['titulo']?.touched">
+                            Título é obrigatória.
+                        </small>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="subTitulo">SubTítulo</label>
+                        <input id="subTitulo" type="text" formControlName="subTitulo" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!curriculoForms.controls?.['subTitulo']?.valid && curriculoForms.controls?.['subTitulo']?.touched">
+                            SubTítulo é obrigatório.
+                        </small>
+                    </div>
+                </div>
+                <!-- <div class="container">
+                    <div class="linha">
+                        <label for="subtitulo">SubTítulo</label>
+                        <input id="subtitulo" type="text" formControlName="subtitulo" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!curriculoForms.controls?.['subtitulo']?.valid && curriculoForms.controls?.['subtitulo']?.touched">
+                            SubTítulo é obrigatório.
+                        </small>
+                    </div>
+                </div> -->
+                <div class="linha">
+                    <label for="subtitulo">Selecione os Cursos</label>
+                </div>
+                <p-pickList
+                [source]="cursos" 
+                [target]="cursosSelecionados"
+                sourceHeader="Cursos" 
+                showSourceControls="false"
+                showTargetControls="false"
+                targetHeader="Cursos Selecionados" 
+                [dragdrop]="true" 
+                [responsive]="false" 
+                [sourceStyle]="{ height: '15rem' }"
+                [targetStyle]="{ height: '15rem' }"
+                breakpoint="1400px"
+                >
+                <ng-template let-curso pTemplate="item">
+                    <div class="flex flex-wrap p-2 align-items-center gap-3">
+                        <div class="flex-1 flex flex-column gap-2">
+                            <span class="titulo"> {{ curso.titulo }}</span>
+                            <div class="flex align-items-center gap-2" *ngIf="curso.instituicao">
+                                <span class="instituicao">
+                                   Instituição: {{ curso.instituicao }}
+                                </span>
+                            </div>
+                            <div class="flex align-items-center gap-2" *ngIf="curso.cargaHoraria">
+                                <span class="instituicao">
+                                   Carga Horária: {{ curso.cargaHoraria }} horas
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                </p-pickList>
+                <div class="linha">
+                    <label for="subtitulo">Selecione as Experiências</label>
+                </div>
+                <p-pickList
+                [source]="experiencias" 
+                [target]="experienciasSelecionadas"
+                sourceHeader="Experiências" 
+                showSourceControls="false"
+                showTargetControls="false"
+                targetHeader="Experiências Selecionadas" 
+                [dragdrop]="true" 
+                [responsive]="false" 
+                [sourceStyle]="{ height: '15rem' }"
+                [targetStyle]="{ height: '15rem' }"
+                breakpoint="1400px"
+                >
+                <ng-template let-exp pTemplate="item">
+                    <div class="flex flex-wrap p-2 align-items-center gap-3">
+                        <div class="flex-1 flex flex-column gap-2">
+                            <span class="titulo"> {{ exp.funcao }}</span>
+                            <div class="flex align-items-center gap-2" *ngIf="exp.empresa">
+                                <span class="instituicao">
+                                   Instituição: {{ exp.empresa }}
+                                </span>
+                            </div>
+                            <div class="flex align-items-center gap-2" *ngIf="exp.dataInicio">
+                                <span class="instituicao">
+                                   Período: {{ exp.dataInicio | date: 'dd/MM/yyyy' }} a {{ exp.dataFim ? (exp.dataFim | date: 'dd/MM/yyyy') : "Atualmente" }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                </p-pickList>
+                <div class="container">
+                    <div class="linha">
+                        <label for="competenciasTecnicas">Competências Técnicas</label>
+                        <textarea id="resumo" type="text" formControlName="competenciasTecnicas" rows="5" pInputTextarea></textarea>
+                        <small style="color: #CB010D;" *ngIf="!curriculoForms.controls?.['resumo']?.valid && curriculoForms.controls?.['resumo']?.touched">
+                            Competências técnicas são obrigatórias.
+                        </small>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="linha">
+                        <label for="descricao">Resumo</label>
+                        <textarea id="resumo" type="text" formControlName="resumo" rows="10" pInputTextarea></textarea>
+                        <small style="color: #CB010D;" *ngIf="!curriculoForms.controls?.['resumo']?.valid && curriculoForms.controls?.['resumo']?.touched">
+                            Resumo é obrigatória.
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="btns">
+                    <p-button 
+                    [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;'}"  label="Salvar" type="submit" 
+                    [disabled]="!curriculoForms.valid"/>
+                    <p-button 
+                        [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;', 'margin-left':'1rem'}"  
+                        label="Visualizar" 
+                        (onClick)="visualizarPrevia()" />
+                
+                </div>
+            </form>
+           </div>
+           <!-- <div class="card-descricao">
+            <p class="dica-tt">Dica!</p>
+            <p class="dica-des">
+                Uma boa descrição das experiências profissionais é um dos elementos mais importantes em um currículo. Ela não só demonstra as habilidades e competências adquiridas ao longo da trajetória, como também evidencia o valor que o profissional pode agregar às empresas. Ao detalhar experiências anteriores, é essencial focar nos resultados alcançados e nas responsabilidades exercidas em cada cargo. Isso ajuda os recrutadores a entenderem como o candidato pode aplicar seu conhecimento e a resolver problemas de maneira eficaz.
+            </p>
+            <p class="dica-des">
+                Uma descrição clara e bem estruturada permite que o recrutador visualize o desenvolvimento de habilidades específicas e veja a evolução do profissional ao longo da carreira. Dessa forma, a apresentação da trajetória não só reforça as capacidades técnicas, mas também mostra competências interpessoais, como liderança, comunicação e adaptabilidade, essenciais no ambiente corporativo atual.
+            </p>
+           </div> -->
+        </div>
+    </div>
+</div>

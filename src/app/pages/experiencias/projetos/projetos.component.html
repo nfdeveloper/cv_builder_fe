@@ -1,0 +1,40 @@
+<div class="main">
+    <div class="card">
+        <div class="titulo">
+            <h3>Projetos</h3>
+            <hr>
+        </div>
+        <div class="data">
+            <p-table
+                class="tabela"
+                [value]="projetos"
+                [paginator]="true"
+                [rows]="5"
+                [rowsPerPageOptions]="[5, 10, 20]"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width:25%">Titulo</th>
+                        <th style="width:25%;text-align: center;">Duração</th>
+                        <th style="width:25%;text-align: center;">Status</th>
+                        <th style="width:25%;text-align: center;"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-prj>
+                    <tr>
+                        <td >{{ prj.titulo }}</td>
+                        <td style="text-align: center;">{{ prj.duracao }}</td>
+                        <td style="text-align: center;">{{ prj.status }}</td>
+                        <td style="text-align: center;">
+                            <div class="btns-acoes">
+                                <p-button [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;', 'margin-right':'0.5rem', 'width': '2rem', 'height':'2rem'}"  icon="pi pi-pencil" />
+                                <p-button [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;', 'width': '2rem', 'height':'2rem'}"  icon="pi pi-ban" />
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+
+            </p-table>
+        </div>
+    </div>
+</div>

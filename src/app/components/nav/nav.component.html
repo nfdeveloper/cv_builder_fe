@@ -1,0 +1,17 @@
+<div class="main" >
+    <div class="logo">
+        <h2 class="txt-logo">CV - Builder Tec</h2>
+        <p-menubar [model]="items" *ngIf="isLoggedIn$ | async" />
+    </div>
+    <div class="perfil">
+        <ng-container *ngIf="isLoggedIn$ | async else elseTemplate">
+            <p >{{this.usuario}}</p>
+            
+        </ng-container>
+        <ng-template #elseTemplate>
+          <p><a routerLink="/login" >Entrar</a></p>
+        </ng-template>
+        
+        <p *ngIf="isLoggedIn$ | async">Sair</p>
+    </div>
+</div>

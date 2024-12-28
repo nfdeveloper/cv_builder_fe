@@ -1,0 +1,76 @@
+<div [style]="{'width':'100%'}">
+    <p-toast></p-toast>
+</div>
+<div class="main">
+    <div class="card">
+        <div class="titulo">
+            <h3>Cadastrar Nova Experiência</h3>
+            <hr>
+        </div>
+        <div class="data">
+           <div class="card-form">
+            <form #f="ngForm" (ngSubmit)="salvar()" [formGroup]="experienciaForms" action="">
+                <div class="container">
+                    <div class="linha">
+                        <label for="empresa">Empresa</label>
+                        <input id="empresa" type="text" formControlName="empresa" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!experienciaForms.controls?.['empresa']?.valid && experienciaForms.controls?.['empresa']?.touched">
+                            Empresa é obrigatória.
+                        </small>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="funcao">Função</label>
+                        <input id="funcao" type="text" formControlName="funcao" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!experienciaForms.controls?.['funcao']?.valid && experienciaForms.controls?.['funcao']?.touched">
+                            Função é obrigatória.
+                        </small>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="linha">
+                        <label for="dataInicio">Data Início</label>
+                        <input id="dataInicio" type="date" formControlName="dataInicio" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!experienciaForms.controls?.['dataInicio']?.valid && experienciaForms.controls?.['dataInicio']?.touched">
+                            Data Início é obrigatória.
+                        </small>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="dataFim">Data Fim</label>
+                        <input id="dataFim" type="date" formControlName="dataFim" pInputText/>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="linha">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" type="text" formControlName="descricao" rows="5" pInputTextarea></textarea>
+                        <small style="color: #CB010D;" *ngIf="!experienciaForms.controls?.['descricao']?.valid && experienciaForms.controls?.['descricao']?.touched">
+                            Descrição é obrigatória.
+                        </small>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="linha">
+                        <label for="tecnologias">Tecnologias Utilizadas</label>
+                        <textarea id="descricao" type="text" formControlName="tecnologias" rows="5" pInputTextarea></textarea>
+                    </div>
+                </div>
+                <div class="btns">
+                    <p-button 
+                    [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;'}"  label="Salvar" type="submit" 
+                    [disabled]="!experienciaForms.valid"/>
+                
+                </div>
+            </form>
+           </div>
+           <div class="card-descricao">
+            <p class="dica-tt">Dica!</p>
+            <p class="dica-des">
+                Uma boa descrição das experiências profissionais é um dos elementos mais importantes em um currículo. Ela não só demonstra as habilidades e competências adquiridas ao longo da trajetória, como também evidencia o valor que o profissional pode agregar às empresas. Ao detalhar experiências anteriores, é essencial focar nos resultados alcançados e nas responsabilidades exercidas em cada cargo. Isso ajuda os recrutadores a entenderem como o candidato pode aplicar seu conhecimento e a resolver problemas de maneira eficaz.
+            </p>
+            <p class="dica-des">
+                Uma descrição clara e bem estruturada permite que o recrutador visualize o desenvolvimento de habilidades específicas e veja a evolução do profissional ao longo da carreira. Dessa forma, a apresentação da trajetória não só reforça as capacidades técnicas, mas também mostra competências interpessoais, como liderança, comunicação e adaptabilidade, essenciais no ambiente corporativo atual.
+            </p>
+           </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div [style]="{'width':'100%'}">
+    <p-toast></p-toast>
+</div>
+<div class="main">
+    <div class="card">
+        <div class="titulo">
+            <h3>Cadastrar Nova Formação</h3>
+            <hr>
+        </div>
+        <div class="data">
+           <div class="card-form">
+            <form #f="ngForm" (ngSubmit)="salvar()" [formGroup]="formacaoForms" action="">
+                <div class="container">
+                    <div class="linha">
+                        <label for="titulo">Titulo:</label>
+                        <input id="titulo" type="text" formControlName="titulo" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!formacaoForms.controls?.['titulo']?.valid && formacaoForms.controls?.['titulo']?.touched">
+                            Título é obrigatório.
+                        </small>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="">Tipo:</label>
+                        <p-dropdown 
+                            [style]="{'width':'100%'}"
+                            [options]="tipos" 
+                            placeholder="Selecione o Tipo"
+                            optionLabel="descricao" 
+                            formControlName="tipo"/>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="linha">
+                        <label for="">Situação:</label>
+                        <p-dropdown 
+                            [style]="{'width':'100%'}"
+                            [options]="statusFormacao" 
+                            placeholder="Selecione a Situação"
+                            optionLabel="descricao" 
+                            formControlName="situacao"/>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="previsaoTermino">Previsão Término:</label>
+                        <input id="previsaoTermino" type="date" formControlName="previsaoTermino" pInputText/>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="dataConclusao">Data Conclusão:</label>
+                        <input id="dataConclusao" type="datetime-local" formControlName="dataConclusao" pInputText/>
+                    </div>
+                    
+                </div>
+               
+                <div class="btns">
+                    <p-button [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;'}"  label="Salvar" type="submit" [disabled]="!formacaoForms.valid"/>
+                </div>
+            </form>
+           </div>
+           <div class="card-descricao">
+            <p class="dica-tt">Dica!</p>
+            <p class="dica-des">
+                O currículo é a principal ferramenta para causar uma boa primeira impressão em processos seletivos. Entre os diversos aspectos que compõem um currículo de qualidade, a descrição clara e detalhada das formações acadêmicas e profissionais desempenha um papel crucial.
+
+                Uma formação bem descrita oferece ao recrutador uma visão precisa das qualificações e da trajetória de desenvolvimento do candidato. Isso é fundamental para demonstrar a compatibilidade entre o perfil do candidato e os requisitos da vaga. Informações como o nome da instituição de ensino, o curso realizado, o período de conclusão e possíveis especializações ou projetos desenvolvidos durante a formação ajudam a destacar o nível de preparo e a área de expertise.
+
+                Além disso, uma descrição bem elaborada transmite organização e atenção aos detalhes, características valorizadas em qualquer ambiente profissional. Quando o currículo apresenta dados incompletos ou confusos, isso pode levantar dúvidas sobre a credibilidade do candidato ou até mesmo fazer com que ele seja descartado no processo seletivo.
+            </p>
+            <p class="dica-des">
+                Outro ponto importante é a personalização do currículo de acordo com o objetivo profissional. Para vagas específicas, é interessante dar ênfase às formações mais relevantes, incluindo certificações e cursos complementares que mostrem habilidades alinhadas ao cargo pretendido.
+
+Por fim, uma boa descrição das formações é também uma oportunidade de diferenciar-se em um mercado competitivo. Formações complementares, como cursos online, workshops ou até mesmo experiências autodidatas, podem evidenciar a busca constante por aprendizado e aperfeiçoamento.
+
+Em resumo, a forma como descrevemos nossas formações no currículo pode ser determinante para destacar nossa trajetória, reforçar nossas competências e aumentar as chances de conquistar a vaga desejada. Investir tempo e cuidado nesse aspecto é um passo essencial rumo ao sucesso profissional.
+            </p>
+           </div>
+        </div>
+    </div>
+</div>

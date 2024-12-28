@@ -1,0 +1,41 @@
+<div class="main">
+    <div class="card">
+        <div class="card-1">
+            <div class="texto">
+                <p class="tt1">Crie seu <span class="tt12">Currículo Tec</span></p>
+                <p class="tt2">Rápido, Fácil e Inteligente</p>
+            </div>
+            <div class="image-home">
+                <p class="ttperg">Não sabe como formular/criar seu currículo?</p>
+                <p class="ttresp">Podemos te ajudar!</p>
+                <p class="ttresp">Após vários estudos e conversas com especialistas na área, conseguimos formular um modelo de Currículo que irá tanto chamar atenção de recrutadores quanto facilitar as suas candidaturas quanto a leitura do arquivo por Inteligência Artificial(IA).</p>
+            </div>
+        </div>
+        <h3 class="txt-titulo">Perfeito para:</h3>
+        <hr>
+        <p-carousel
+            [numVisible]="3"
+            [circular]="false"
+            [value]="categorias"
+            [style]="{'margin-top':'2rem'}"
+        >
+            <ng-template let-product pTemplate="item">
+                <div class="border-1 surface-border border-round m-2 p-3">
+                    <div class="mb-3">
+                        <div class="card-image">
+                            <img 
+                                src="../../../assets/{{ product.imagem }}"  
+                                class="imagem-ca" />
+                            <p class="titulo">{{ product.titulo }}</p>
+                            <div class="descricao">
+                                <p>{{ product.descricao }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            
+    
+        </p-carousel>
+    </div>
+</div>

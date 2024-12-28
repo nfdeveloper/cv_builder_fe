@@ -1,0 +1,32 @@
+<div class="main">
+    <div class="container">
+        <div class="logo">
+            <p class="titulo">Cv Builder</p>
+            <p class="subtitulo">Crie seu currículo grátis</p>
+        </div>
+        <div class="formulario">
+            <form #f="ngForm" (ngSubmit)="entrar()" [formGroup]="loginForms" action="">
+                <div class="linha">
+                    <label for="username">Usuário:</label>
+                    <input id="username" type="text" formControlName="username" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!loginForms.controls?.['username']?.valid && loginForms.controls?.['username']?.touched">
+                            Insira um usuário.
+                        </small>
+                </div>
+                <div class="linha">
+                    <label for="password">Senha:</label>
+                    <input id="password" type="password" formControlName="password" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!loginForms.controls?.['password']?.valid && loginForms.controls?.['password']?.touched">
+                            Insira uma senha.
+                        </small>
+                </div>
+                <div class="btns">
+                    <p-button [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;'}"  label="Entrar" type="submit" [disabled]="!loginForms.valid"/>
+                </div>
+                <div class="cadastro">
+                    <p>Não possui uma conta? <a href="">Cadastre-se</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

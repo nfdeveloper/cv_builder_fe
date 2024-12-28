@@ -1,0 +1,83 @@
+<div [style]="{'width':'100%'}">
+    <p-toast></p-toast>
+</div>
+<div class="main">
+    <div class="card">
+        <div class="titulo">
+            <h3>Cadastrar Novo Curso</h3>
+            <hr>
+        </div>
+        <div class="data">
+           <div class="card-form">
+            <form #f="ngForm" (ngSubmit)="salvar()" [formGroup]="cursoForms" action="">
+                <div class="container">
+                    <div class="linha">
+                        <label for="titulo">Titulo:</label>
+                        <input id="titulo" type="text" formControlName="titulo" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!cursoForms.controls?.['titulo']?.valid && cursoForms.controls?.['titulo']?.touched">
+                            Título é obrigatório.
+                        </small>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="instituicao">Instituição:</label>
+                        <input id="instituicao" type="text" formControlName="instituicao" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!cursoForms.controls?.['instituicao']?.valid && cursoForms.controls?.['instituicao']?.touched">
+                            Instituição é obrigatória.
+                        </small>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="linha">
+                        <label for="cargaHoraria">Carga Horária:</label>
+                        <input id="cargaHoraria" type="text" formControlName="cargaHoraria" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!cursoForms.controls?.['cargaHoraria']?.valid && cursoForms.controls?.['cargaHoraria']?.touched">
+                            Carga Horária é obrigatória.
+                        </small>
+                    </div>
+                    <!-- <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="dtTermino">Data Término:</label>
+                        <input id="dtTermino" type="date" formControlName="dtTermino" pInputText/>
+                    </div> -->
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="">Situação:</label>
+                        <p-dropdown 
+                            [style]="{'width':'100%'}"
+                            [options]="situacoes" 
+                            optionLabel="descricao" 
+                            formControlName="situacao"/>
+                    </div>
+                    
+                </div>
+                <div class="container">
+                    <div class="linha" >
+                        <label for="tecnologias">Tecnologias Utilizadas:</label>
+                        <textarea id="tecnologias" type="text" formControlName="tecnologias" rows="4" pInputTextarea></textarea>
+                        <small style="color: #CB010D;" *ngIf="!cursoForms.controls?.['tecnologias']?.valid && cursoForms.controls?.['tecnologias']?.touched">
+                            Tecnologias é obrigatória.
+                        </small>
+                    </div>
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" type="text" formControlName="descricao" rows="4" pInputTextarea></textarea>
+                        <small style="color: #CB010D;" *ngIf="!cursoForms.controls?.['descricao']?.valid && cursoForms.controls?.['descricao']?.touched">
+                            Descrição é obrigatória.
+                        </small>
+                    </div>
+                </div>
+                <div class="btns">
+                    <p-button [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;'}"  label="Salvar" type="submit" [disabled]="!cursoForms.valid"/>
+                </div>
+            </form>
+           </div>
+           <div class="card-descricao">
+            <p class="dica-tt">Dica!</p>
+            <p class="dica-des">
+                A seção de cursos e certificações é fundamental em um currículo, pois demonstra o compromisso do profissional com o aprendizado contínuo e a atualização de conhecimentos. Ela evidencia habilidades técnicas e conhecimentos específicos adquiridos, que podem fazer a diferença no momento da contratação.
+            </p>
+            <p class="dica-des">
+                Ao descrever os cursos realizados, é importante destacar o conteúdo principal e as competências adquiridas, especialmente aquelas que são diretamente relevantes para a posição desejada. Esse detalhamento não apenas facilita a compreensão da bagagem técnica, mas também reforça o perfil profissional como alguém que investe em sua qualificação e está preparado para atender às demandas do mercado.
+            </p>
+           </div>
+        </div>
+    </div>
+</div>

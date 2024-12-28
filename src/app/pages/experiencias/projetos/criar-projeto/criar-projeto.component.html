@@ -1,0 +1,75 @@
+<div [style]="{'width':'100%'}">
+    <p-toast></p-toast>
+</div>
+<div class="main">
+    <div class="card">
+        <div class="titulo">
+            <h3>Cadastrar Novo Projeto</h3>
+            <hr>
+        </div>
+        <div class="data">
+           <div class="card-form">
+            <form #f="ngForm" (ngSubmit)="salvar()" [formGroup]="projetoForms" action="">
+                <div class="container">
+                    <div class="linha">
+                        <label for="titulo">Titulo:</label>
+                        <input id="titulo" type="text" formControlName="titulo" pInputText/>
+                        <small style="color: #CB010D;" *ngIf="!projetoForms.controls?.['titulo']?.valid && projetoForms.controls?.['titulo']?.touched">
+                            Título é obrigatório.
+                        </small>
+                    </div>                    
+                </div>
+                <div class="container">
+                    <div class="linha" >
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" type="text" formControlName="descricao" rows="4" pInputTextarea></textarea>
+                        <small style="color: #CB010D;" *ngIf="!projetoForms.controls?.['descricao']?.valid && projetoForms.controls?.['descricao']?.touched">
+                            Descrição é obrigatória.
+                        </small>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="linha" >
+                        <label for="tecnologias">Tecnologias Utilizadas:</label>
+                        <textarea id="tecnologias" type="text" formControlName="tecnologias" rows="2" pInputTextarea></textarea>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="linha">
+                        <label for="duracao">Duração:</label>
+                        <input id="duracao" type="text" formControlName="duracao" pInputText/>
+                        
+                    </div>
+                    <!-- <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="dtTermino">Data Término:</label>
+                        <input id="dtTermino" type="date" formControlName="dtTermino" pInputText/>
+                    </div> -->
+                    <div class="linha" [style]="{'margin-left':'0.4rem'}">
+                        <label for="">Experiência:</label>
+                        <p-dropdown 
+                            [style]="{'width':'100%'}"
+                            [options]="experiencias" 
+                            optionLabel="empresa" 
+                            formControlName="experienciaId"/>
+                    </div>
+                    
+                </div>
+                <div class="btns">
+                    <p-button [style]="{'background-color':'black', 'border-color':'black', 'color':'#F2F2F2', 'font-family': 'Poppins, sans-serif;'}"  label="Salvar" type="submit" [disabled]="!projetoForms.valid"/>
+                </div>
+            </form>
+           </div>
+           <div class="card-descricao">
+            <p class="dica-tt">Atenção!</p>
+            <p class="dica-des">
+              Informe os projetos nos quais você atuou de forma direta ou indiretamente em determina experiência profissional. Não esqueça de relatar qual o objetivo do projeto, as tecnologias utilizadas e a duração. 
+            </p>
+            <p class="dica-des">
+                Logo abaixo, você deve tambem informar em qual empresa este projeto foi desenvolvido.
+            </p>
+    
+           </div>
+        </div>
+    </div>
+</div>

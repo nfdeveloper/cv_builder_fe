@@ -1,0 +1,34 @@
+<div class="main">
+    <div class="card">
+        <div class="titulo">
+            <h3>Formações</h3>
+            <hr>
+        </div>
+        <div class="data">
+            <p-table
+                [value]="formacoes"
+                [paginator]="true"
+                [rows]="5"
+                [rowsPerPageOptions]="[5, 10, 20]"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width:25%">Titulo</th>
+                        <th style="width:25%">Tipo</th>
+                        <th style="width:25%">Situação</th>
+                        <th style="width:25%"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-exp>
+                    <tr>
+                        <td>{{ exp.titulo }}</td>
+                        <td>{{ exp.tipo }}</td>
+                        <td>{{ exp.situacao }}</td>
+                        <td></td>
+                    </tr>
+                </ng-template>
+
+            </p-table>
+        </div>
+    </div>
+</div>
