@@ -4,11 +4,14 @@ import { UsuarioLogado } from '../../../core/models/usuario/usuario-logado.model
 import { CurriculoCreate } from '../../../core/models/curriculo/curriculo-create.model';
 import { Experiencia } from '../../../core/models/experiencia/experiencia.model';
 import { Curso } from '../../../core/models/curso/curso.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-modal-pre-visualizar-curriculo',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './modal-pre-visualizar-curriculo.component.html',
   styleUrl: './modal-pre-visualizar-curriculo.component.scss'
 })

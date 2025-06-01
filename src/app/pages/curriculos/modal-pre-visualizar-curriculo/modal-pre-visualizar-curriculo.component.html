@@ -1,2 +1,27 @@
 <h1>{{usuario.nome}}</h1>
 <h3>{{curriculo.titulo}}</h3>
+<h3>{{usuario.endereco?.cidade}}</h3>
+<h4>Resumo</h4>
+<hr>
+<p>{{curriculo.resumo}}</p>
+<div class="contato">
+    <span>Github: {{usuario.gitHub}}</span>
+    <span>Email: {{usuario.contato?.email}}</span>
+    <span>Tel: {{usuario.contato?.telefone}}</span>
+</div>
+<h4>Experiência Profissional</h4>
+<hr>
+<div *ngFor="let experiencia of experiencias">
+    <h5>{{experiencia.empresa}}</h5>
+    <span>{{experiencia.funcao}}</span>
+    <span>{{experiencia.dataInicio}} - {{experiencia.dataFim}}</span>
+    <p>{{experiencia.descricao}}</p>    
+</div>
+<h4>Formação / Cursos</h4>
+<hr>
+<div *ngFor="let formacao of cursos">
+    <h5>{{formacao.instituicao}}</h5>
+    <span>{{formacao.titulo}}</span>
+    <span>{{formacao.status}}</span>
+    <p>{{formacao.descricao}}</p>
+</div>
